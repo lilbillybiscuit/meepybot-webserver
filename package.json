@@ -1,0 +1,31 @@
+{
+  "name": "meepybot-webserver",
+  "version": "0.0.1",
+  "description": "UI for some meepybot commands",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lilbillybiscuit/meepybot-webserver.git"
+  },
+  "author": "lilbillybiscuit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lilbillybiscuit/meepybot-webserver/issues"
+  },
+  "homepage": "https://github.com/lilbillybiscuit/meepybot-webserver#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "clean": "^4.0.2",
+    "discord-markdown": "^2.5.1",
+    "discord.js": "^13.3.1",
+    "express": "^4.17.1",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

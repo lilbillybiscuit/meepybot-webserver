@@ -4,17 +4,21 @@
 
     {
         "date": integer,
+        "success": boolean,
+        "error": string,
         "size": integer,
         "channel_name": string,
         "elements": {
             {
                 "index" : integer,
-                "username": long integer,
+                "timestamp": string,
+                "username": string,
                 "username_color": string,
-                "avater_url": string,
+                "avatar_url": string,
                 "message_url": string,
                 "attachments": boolean,
-                "message": possibly huge string,
+                "attachments_api": string, 
+                "message": huge string, message is already html
                 
             }
         }
