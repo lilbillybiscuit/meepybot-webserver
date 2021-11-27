@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/lilbillybiscuit/meepybot-webserver#readme",
   "dependencies": {
+    "better-sqlite3": "^7.4.5",
     "body-parser": "^1.19.0",
     "clean": "^4.0.2",
     "discord-markdown": "^2.5.1",

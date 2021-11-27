@@ -20,6 +20,8 @@ var hi = `
    </div>	
 </div>`;
 
+var message_attachment = `
+<div class="message-attachment-div"><img src="image_url" loading="lazy" sizes="(max-width: 767px) 46vw, (max-width: 991px) 45vw, 450px" alt="" class="image-3"></div>`
 function replaceAll(str, mapObj) {
   var re = new RegExp(Object.keys(mapObj).join("|"), "gi");
 
@@ -57,11 +59,15 @@ $.getJSON(cururl, function(data) {
       index_text: '#'+obj.index,
       message_url: obj.message_url
     };
+    if (obj.attachments) {
+      var tempimg=replaceAll(message_attachment, {image_url: obj.attachments_api});
+    }
     var temp = replaceAll(hi, replacethis);
     var divobj = $(temp);
     divobj
       .find("#message-text")
       .html(obj.message);
+    divobj.find('#message-container').append(temp)
     divobj.appendTo("#message-list");
   }
 });
