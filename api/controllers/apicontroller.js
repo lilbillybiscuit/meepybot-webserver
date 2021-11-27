@@ -1,11 +1,11 @@
 const Database = require('better-sqlite3');
 const db = new Database('../meepybot/meepybot.db');
-const { Client, Intents, Collection} = require("discord.js");
 const { parser, htmlOutput, toHTML } = require('discord-markdown');
+/*const { Client, Intents, Collection} = require("discord.js");
 
 const client = new Client({
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES]
-});
+});*/
 
 exports.list_all_tasks = function(req, res) {
   console.log(req._parsedUrl.pathname);
@@ -56,10 +56,34 @@ exports.pinlist = async function(req, res) {
     'error': "Success",
     'elements': []
     };
+    console.log(initial);
+    var d1= initial.created_at;
+    d1=new Date(parseInt(d1.substring(6,10)),
+                parseInt(d1.substring(0,2)),
+                parseInt(d1.substring(3,5)),
+                parseInt(d1.substring(14, 16)),
+                parseInt(d1.substring(17,19)));
+    console.log(d1.getTime());
+
+    messages.sort(function(a,b) {
+        var d1= a.created_at;
+        var d2= b.created_at;
+        d1=new Date(parseInt(d1.substring(6,10)),
+                parseInt(d1.substring(0,2)),
+                parseInt(d1.substring(3,5)),
+                parseInt(d1.substring(14, 16)),
+                parseInt(d1.substring(17,19)));
+        d2=new Date(parseInt(d2.substring(6,10)),
+                parseInt(d2.substring(0,2)),
+                parseInt(d2.substring(3,5)),
+                parseInt(d2.substring(14, 16)),
+                parseInt(d2.substring(17,19)));
+        return d2.getTime()-d1.getTime();
+    });
     for (const i in messages) {
         var msg = messages[i];
         var temp = {
-                'index': i,
+                'index': messages.length-i-1,
                 'timestamp': msg.created_at,
                 'username': msg.author.nick==null?msg.author.display_name : msg.author.nick,
                 'username_color': msg.author.color=="#000000"?"#FFFFFF" : msg.author.color,
@@ -67,6 +91,7 @@ exports.pinlist = async function(req, res) {
                 'message_url': msg.jump_url,
                 'attachments': msg.has_attachments,
                 'attachments_api': msg.has_attachments?msg.attachments[0].url:null,
+                'content_type': msg.has_attachments?msg.attachments[0].content_type:null,
                 'message': toHTML(msg.content)
             }
             ret.elements.push(temp);

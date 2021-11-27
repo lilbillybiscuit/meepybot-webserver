@@ -651,8 +651,6 @@ p {
 }
 
 .avatar-div {
-  width: 70px;
-  min-width: 70px;
   padding: 5px 10px;
 }
 
@@ -694,15 +692,10 @@ p {
 }
 
 .message {
-  max-width: 100%;
   padding-right: 10px;
   padding-bottom: 5px;
   padding-left: 10px;
   color: #fff;
-}
-
-.message-text {
-  width: 80%;
 }
 
 .message-attachment-div {
@@ -711,7 +704,7 @@ p {
 }
 
 .image-3 {
-  max-height: 25vh;
+  max-height: 30vh;
 }
 
 .hiddendev {
@@ -749,15 +742,6 @@ p {
 .indeterminate {
   min-height: 10px;
   min-width: 100%;
-}
-
-.text-block-7 {
-  color: #fff;
-  text-align: center;
-}
-
-.body-3 {
-  background-color: #fff;
 }
 
 @media screen and (max-width: 991px) {
@@ -937,10 +921,6 @@ p {
     padding-top: 10px;
     padding-bottom: 10px;
     border-top: 1px solid #c4c4c4;
-  }
-
-  .message-container {
-    font-size: 14px;
   }
 }
 

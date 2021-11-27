@@ -18,6 +18,7 @@
                 "message_url": string,
                 "attachments": boolean,
                 "attachments_api": string, 
+                "content_type": string,
                 "message": huge string, message is already html
                 
             }
