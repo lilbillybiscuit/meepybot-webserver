@@ -85,8 +85,6 @@ $.getJSON(cururl, function(data) {
         attachment_html=replaceAll(attachment_url_obj, {attachment_url: obj.attachments_api});
         intext=true;
       }
-      attachment_html=replaceAll(attachment_url_obj, {attachment_url: obj.attachments_api});
-        intext=true;
     }
     var temp = replaceAll(hi, replacethis);
     var divobj = $(temp);

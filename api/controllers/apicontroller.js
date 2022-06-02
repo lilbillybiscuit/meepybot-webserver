@@ -43,8 +43,8 @@ exports.pinlist = async function(req, res) {
     var messages=[];
     for (const i in message_ids) {
         var row = message_ids[i];
-        var result=db.prepare("SELECT message FROM messages WHERE message_id=?").get(BigInt(row.message_id));
-        if (result==undefined) continue;
+        var result=db.prepare("SELECT message,created_at FROM messages WHERE message_id=?").get(BigInt(row.message_id));
+        if (result==undefined) co   ntinue;
         messages.push(JSON.parse(result.message));
     }
     var initial = messages[0];
